@@ -1,0 +1,40 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Username:</b>
+  <%= @champion.username %>
+</p>
+
+<p>
+  <b>Fname:</b>
+  <%= @champion.fname %>
+</p>
+
+<p>
+  <b>Lname:</b>
+  <%= @champion.lname %>
+</p>
+
+<p>
+  <b>City:</b>
+  <%= @champion.city %>
+</p>
+
+<p>
+  <b>State:</b>
+  <%= @champion.state %>
+</p>
+
+<p>
+  <b>Email:</b>
+  <%= @champion.email %>
+</p>
+
+<p>
+  <b>Password:</b>
+  <%= @champion.password %>
+</p>
+
+
+<%= link_to 'Edit', edit_champion_path(@champion) %> |
+<%= link_to 'Back', champions_path %>
