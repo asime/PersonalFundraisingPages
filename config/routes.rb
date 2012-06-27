@@ -1,4 +1,6 @@
 PersonalFundraisingPages::Application.routes.draw do
+  resources :fundraisers
+
   resources :champions
   # The priority is based upon order of creation:
   # first created -> highest priority.
