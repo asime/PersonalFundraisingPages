@@ -1,5 +1,7 @@
 <p id="notice"><%= notice %></p>
 
+<%=link_to "Create event", :controller => "event", :action => "new", :champion => @champion.id %>
+
 <p>
   <b>Username:</b>
   <%= @champion.username %>
