@@ -25,6 +25,6 @@
   <%= @fundraiser.deadline %>
 </p>
 
-<%= button_to 'Donate', donate_fundraiser_path %>
+<%= button_to 'Donate', :controller => "fundraisers", :action => "donate", :fundraiser => @fundraiser.id %>
 <%= link_to 'Edit', edit_fundraiser_path(@fundraiser) %> |
 <%= link_to 'Back', fundraisers_path %>
