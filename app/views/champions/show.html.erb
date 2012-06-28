@@ -39,14 +39,22 @@
 
 <p>
   <b>Fundraisers:</b>
-  <table><tr><th>Id</th><th>Title</th><th>Description</th><th>Goal</th><th>Deadline</th></tr>
+  <table>
+	<tr>
+		<th>Title</th>
+		<th>Description</th>
+		<th>Goal</th>
+		<th>Deadline</th>
+	</tr>
 
-  <%
-	return '|'+ @fundraisers.inspect + '|'	
-	#@fundraisers.each do |fr|
-	#  puts "<tr><td>#{fr.id}</td></tr>"
-	#end
-  %>
+  <% @fundraisers.each do |fr| %>
+  	<tr>
+		<td><%= link_to fr.title, fundraiser_path(fr.id) %></td>
+		<td><%= fr.description %></td>
+		<td><%= fr.goal %></td>
+		<td><%= fr.deadline %></td>
+	</tr>
+  <% end %>
   
   </table>
 </p>
