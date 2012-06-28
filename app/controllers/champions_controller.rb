@@ -14,6 +14,7 @@ class ChampionsController < ApplicationController
   # GET /champions/1.json
   def show
     @champion = Champion.find(params[:id])
+	@fundraisers = Fundraiser.find_all_by_champion_id(@champion.id)
 
     respond_to do |format|
       format.html # show.html.erb
