@@ -2,7 +2,7 @@
 
 <p>
   <b>Champion:</b>
-  <%= @fundraiser.champion_id %>
+  <%= link_to @champion.username, champion_path(@champion.id) %>
 </p>
 
 <p>

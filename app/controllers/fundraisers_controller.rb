@@ -15,6 +15,8 @@ class FundraisersController < ApplicationController
   def show
     @fundraiser = Fundraiser.find(params[:id])
 
+	@champion = Champion.find(@fundraiser.champion_id)
+
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @fundraiser }
