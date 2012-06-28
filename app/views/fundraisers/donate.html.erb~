@@ -1,0 +1,1 @@
+You are donating to fundraiser <%= @fundraiser.id %> right now

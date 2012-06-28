@@ -1,0 +1,31 @@
+<h1>Listing fundraisers</h1>
+
+<table>
+  <tr>
+	<th>Champion</th>
+    <th>Title</th>
+    <th>Description</th>
+    <th>Goal</th>
+    <th>Deadline</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @fundraisers.each do |fundraiser| %>
+  <tr>
+	<td><%= fundraiser.champion_id %></td>
+    <td><%= fundraiser.title %></td>
+    <td><%= fundraiser.description %></td>
+    <td><%= fundraiser.goal %></td>
+    <td><%= fundraiser.deadline %></td>
+    <td><%= link_to 'Show', fundraiser %></td>
+    <td><%= link_to 'Edit', edit_fundraiser_path(fundraiser) %></td>
+    <td><%= link_to 'Destroy', fundraiser, confirm: 'Are you sure?', method: :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Fundraiser', new_fundraiser_path %>

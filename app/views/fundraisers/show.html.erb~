@@ -1,0 +1,30 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Champion:</b>
+  <%= @fundraiser.champion_id %>
+</p>
+
+<p>
+  <b>Title:</b>
+  <%= @fundraiser.title %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%= @fundraiser.description %>
+</p>
+
+<p>
+  <b>Goal:</b>
+  <%= @fundraiser.goal %>
+</p>
+
+<p>
+  <b>Deadline:</b>
+  <%= @fundraiser.deadline %>
+</p>
+
+<%= button_to 'Donate', :controller => "fundraiser", :action => "donate", :fundraiser => @fundraiser.id %>
+<%= link_to 'Edit', edit_fundraiser_path(@fundraiser) %> |
+<%= link_to 'Back', fundraisers_path %>
