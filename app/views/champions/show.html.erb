@@ -37,6 +37,19 @@
   <%= @champion.password %>
 </p>
 
+<p>
+  <b>Fundraisers:</b>
+  <table><tr><th>Id</th><th>Title</th><th>Description</th><th>Goal</th><th>Deadline</th></tr>
+
+  <%
+	return '|'+ @fundraisers.inspect + '|'	
+	#@fundraisers.each do |fr|
+	#  puts "<tr><td>#{fr.id}</td></tr>"
+	#end
+  %>
+  
+  </table>
+</p>
 
 <%= link_to 'Edit', edit_champion_path(@champion) %> |
 <%= link_to 'Back', champions_path %>
