@@ -5,7 +5,8 @@ Scenario: Create a champion
 	When I enter my user info
 	And I create my champion
 	Then I should see my info on the show page
-	And I should see "Create a fundraiser"
+	And I should see "Create fundraiser"
+
 @wip
 Scenario: View fundraisers
 	Given I have created a champion and that champion has a fundraiser
