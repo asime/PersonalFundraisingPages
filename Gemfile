@@ -39,3 +39,16 @@ gem 'jquery-rails'
 
 # To use debugger
 # gem 'ruby-debug19', :require => 'ruby-debug'
+
+gem "rspec-rails", :group => [:test, :development] # rspec in dev so the rake tasks run properly
+
+group :test do
+  gem 'cucumber-rails'
+  gem 'factory_girl_rails'
+  gem 'database_cleaner'
+  gem 'capybara'
+  gem 'guard-rspec'
+  gem 'guard-cucumber'
+  gem 'guard-livereload'
+  gem 'rb-fsevent' # Guard needs this
+end
