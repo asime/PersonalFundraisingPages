@@ -7,6 +7,13 @@ Scenario: Create a champion
 	Then I should see my info on the show page
 	And I should see "Create fundraiser"
 
+Scenario: Create a fundraiser
+	Given I am a champion on the show champions page
+	When I click create fundraiser
+	And I fill out the fundraiser fields
+	And I create a fundraiser
+	Then I should see the fundraiser info on the champion's page
+
 @wip
 Scenario: View fundraisers
 	Given I have created a champion and that champion has a fundraiser

@@ -1,6 +1,6 @@
 <p id="notice"><%= notice %></p>
 
-<%=link_to "Create fundraiser", new_fundraiser_path%>
+<%=link_to "Create fundraiser", new_fundraiser_path(:champion => @champion.id) %>
 
 <p>
   <b>Username:</b>

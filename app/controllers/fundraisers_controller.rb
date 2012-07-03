@@ -28,6 +28,9 @@ class FundraisersController < ApplicationController
   def new
     @fundraiser = Fundraiser.new
 
+	@fundraiser.champion_id=params[:champion]
+	@champion = Champion.find(@fundraiser.champion_id)
+
     respond_to do |format|
       format.html # new.html.erb
       format.json { render json: @fundraiser }
@@ -37,13 +40,14 @@ class FundraisersController < ApplicationController
   # GET /fundraisers/1/edit
   def edit
     @fundraiser = Fundraiser.find(params[:id])
+	@champion = Champion.find(@fundraiser.champion_id)
   end
 
   # POST /fundraisers
   # POST /fundraisers.json
   def create
     @fundraiser = Fundraiser.new(params[:fundraiser])
-
+	#@fundraiser.champion_id=params[:champion]
     respond_to do |format|
       if @fundraiser.save
         format.html { redirect_to @fundraiser, notice: 'Fundraiser was successfully created.' }

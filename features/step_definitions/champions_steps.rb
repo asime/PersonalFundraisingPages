@@ -1,3 +1,4 @@
+#create a new champion test
 Given /^I am on the new champions page$/ do
   visit('/champions/new')
   page.has_content?('Champion')
@@ -30,3 +31,34 @@ end
 Then /^I should see "(.*?)"$/ do |arg1|
   page.should have_content(arg1)
 end
+
+Given /^I am a champion on the show champions page$/ do
+	step "I am on the new champions page"
+	step "I enter my user info"
+	step "I create my champion"
+end
+
+When /^I click create fundraiser$/ do
+	click_link('Create fundraiser')
+end
+
+
+When /^I fill out the fundraiser fields$/ do
+	fill_in('fundraiser_title', :with => 'fun title test')
+	fill_in('fundraiser_description', :with => 'I am raising money for little children with ailments. And this is a description of my 	fundraising attempts.')
+	fill_in('fundraiser_goal', :with => '50')
+	select('2013', :from => 'fundraiser_deadline_1i')
+	select('July', :from => 'fundraiser_deadline_2i')
+	select('4', :from => 'fundraiser_deadline_3i')
+	select('04', :from => 'fundraiser_deadline_4i')
+	select('20', :from => 'fundraiser_deadline_5i')
+end
+
+When /^I create a fundraiser$/ do
+	click_button('Create Fundraiser')
+end
+
+Then /^I should see the fundraiser info on the champion's page$/ do
+  page.should have_content('fun title test')
+end
+

@@ -12,6 +12,13 @@
   <% end %>
 
   <div class="field">
+    <%= f.label :champion, :value => params[:champion] %><br />
+	<%= link_to @champion.username + " (" + @champion.fname + " " + @champion.lname + ")", champion_path(@champion.id) %>
+    <%= f.hidden_field :champion, :value => params[:champion] %>
+
+  </div>
+
+  <div class="field">
     <%= f.label :title %><br />
     <%= f.text_field :title %>
   </div>
