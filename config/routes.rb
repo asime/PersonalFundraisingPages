@@ -1,4 +1,6 @@
 PersonalFundraisingPages::Application.routes.draw do
+  resources :donors
+
   resources :fundraisers
   resources :champions
 

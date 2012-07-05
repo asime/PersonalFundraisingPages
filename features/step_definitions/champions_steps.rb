@@ -45,7 +45,7 @@ end
 
 When /^I fill out the fundraiser fields$/ do
 	fill_in('fundraiser_title', :with => 'fun title test')
-	fill_in('fundraiser_description', :with => 'I am raising money for little children with ailments. And this is a description of my 	fundraising attempts.')
+	fill_in('fundraiser_description', :with => 'I am raising money for children with ailments. And this is a description of my	fundraising attempts.')
 	fill_in('fundraiser_goal', :with => '50')
 	select('2013', :from => 'fundraiser_deadline_1i')
 	select('July', :from => 'fundraiser_deadline_2i')
@@ -60,5 +60,7 @@ end
 
 Then /^I should see the fundraiser info on the champion's page$/ do
   page.should have_content('fun title test')
+  page.should have_content('50')
+  page.should have_content('I am raising')
 end
 
