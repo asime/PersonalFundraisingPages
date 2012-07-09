@@ -27,10 +27,6 @@ class FundraisersController < ApplicationController
   # GET /fundraisers/new.json
   def new
     @fundraiser = Fundraiser.new
-    
-    puts "FFFFFFFFFFFFFFF"
-	  puts @fundraiser.inspect
-	  puts "FFFFFFFFFFFFFFF"
 
 	  @fundraiser.champion_id=params[:champion]
 	  @champion = Champion.find(@fundraiser.champion_id)
@@ -96,9 +92,13 @@ class FundraisersController < ApplicationController
   def donate
 	  @fundraiser = Fundraiser.find(params[:id])
 	  @donor = Donor.new
-	  puts "HHHHHHHHHHHHHH"
-	  puts @donor.inspect
-	  puts "HHHHHHHHHHHHHH"
+	  
+	  1.times {
+		puts 'VVVVVVVVVVVV' 
+		@donor.donations.build
+		@donor.inspect
+		puts 'VVVVVVVVVVVV'
+	  }
 	  
 	  respond_to do |format|
       format.html # donate.html.erb

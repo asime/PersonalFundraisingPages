@@ -47,6 +47,17 @@ Thank you for donating to the "<%= @fundraiser.title %>" fundraiser!
     <%= f.check_box :display_name %>
   </div>
 
+  <%= f.fields_for :donations do |builder| %>
+    <div class="field">
+      <%= builder.label :amount %><br />
+      <%= builder.text_field :amount %>
+    </div>
+    <div class="field">
+      <%= builder.label :comments %><br />
+      <%= builder.text_area :comments %>
+    </div>
+  <% end %>
+
   <div class="actions">
     <%= f.submit %>
   </div>
