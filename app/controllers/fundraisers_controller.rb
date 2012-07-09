@@ -27,9 +27,13 @@ class FundraisersController < ApplicationController
   # GET /fundraisers/new.json
   def new
     @fundraiser = Fundraiser.new
+    
+    puts "FFFFFFFFFFFFFFF"
+	  puts @fundraiser.inspect
+	  puts "FFFFFFFFFFFFFFF"
 
-	@fundraiser.champion_id=params[:champion]
-	@champion = Champion.find(@fundraiser.champion_id)
+	  @fundraiser.champion_id=params[:champion]
+	  @champion = Champion.find(@fundraiser.champion_id)
 
     respond_to do |format|
       format.html # new.html.erb
@@ -40,7 +44,7 @@ class FundraisersController < ApplicationController
   # GET /fundraisers/1/edit
   def edit
     @fundraiser = Fundraiser.find(params[:id])
-	@champion = Champion.find(@fundraiser.champion_id)
+	  @champion = Champion.find(@fundraiser.champion_id)
   end
 
   # POST /fundraisers
@@ -90,7 +94,16 @@ class FundraisersController < ApplicationController
   # DONATE /fundraisers/1
   # DONATE /fundraisers/1.json
   def donate
-	@fundraiser = Fundraiser.find(params[:id])
+	  @fundraiser = Fundraiser.find(params[:id])
+	  @donor = Donor.new
+	  puts "HHHHHHHHHHHHHH"
+	  puts @donor.inspect
+	  puts "HHHHHHHHHHHHHH"
+	  
+	  respond_to do |format|
+      format.html # donate.html.erb
+      format.json { render json: @fundraisers }
+    end
   end
 
 end

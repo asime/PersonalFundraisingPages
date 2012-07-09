@@ -1,6 +1,6 @@
-
-
-<% form_for @donor do |f| %>
+Thank you for donating to the "<%= @fundraiser.title %>" fundraiser!
+<br/>
+<%= form_for @donor, :url => {:controller => "donors", :action => "create"} do |f| %>
 
   <div class="field">
     <%= f.label :username %><br />

@@ -1,5 +1,6 @@
 class Fundraiser < ActiveRecord::Base
   belongs_to :champions
+  has_many :donations
   attr_accessible :champion_id, :deadline, :description, :goal, :title
   
   def progress
