@@ -34,11 +34,11 @@ Then /^I see a goal of "(.*?)" with progress of "(.*?)"$/ do |arg1, arg2|
 end
 
 When /^I donate to this fundraiser$/ do
-  pending # express the regexp above with the code you wish you had
+  click_button('Donate')
 end
 
 Then /^I see a form to fill out$/ do
-  pending # express the regexp above with the code you wish you had
+  page.should have_content('Username')
 end
 
 Then /^I fill out the donation form for an amount of "(.*?)"$/ do |arg1|
