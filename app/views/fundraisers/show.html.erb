@@ -21,10 +21,16 @@
 </p>
 
 <p>
+  <b>Progress:</b>
+  <%= @fundraiser.progress %>
+</p>
+
+<p>
   <b>Deadline:</b>
   <%= @fundraiser.deadline %>
 </p>
 
 <%= button_to 'Donate', :controller => "fundraisers", :action => "donate", :fundraiser => @fundraiser.id %>
+
 <%= link_to 'Edit', edit_fundraiser_path(@fundraiser) %> |
 <%= link_to 'Back', fundraisers_path %>

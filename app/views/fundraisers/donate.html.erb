@@ -1,1 +1,53 @@
-You are donating to fundraiser <%= @fundraiser.id %> right now
+
+
+<% form_for @donor do |f| %>
+
+  <div class="field">
+    <%= f.label :username %><br />
+    <%= f.text_field :username  %>
+  </div>
+  <div class="field">
+    <%= f.label :password %><br />
+    <%= f.text_field :password %>
+  </div>
+  <div class="field">
+    <%= f.label :fname %><br />
+    <%= f.text_field :fname %>
+  </div>
+  <div class="field">
+    <%= f.label :lname %><br />
+    <%= f.text_field :lname %>
+  </div>
+  <div class="field">
+    <%= f.label :email %><br />
+    <%= f.text_field :email %>
+  </div>
+  <div class="field">
+    <%= f.label :street1 %><br />
+    <%= f.text_field :street1 %>
+  </div>
+  <div class="field">
+    <%= f.label :street2 %><br />
+    <%= f.text_field :street2 %>
+  </div>
+  <div class="field">
+    <%= f.label :city %><br />
+    <%= f.text_field :city %>
+  </div>
+  <div class="field">
+    <%= f.label :state %><br />
+    <%= f.text_field :state %>
+  </div>
+  <div class="field">
+    <%= f.label :postal_code %><br />
+    <%= f.text_field :postal_code %>
+  </div>
+  <div class="field">
+    <%= f.label :display_name %><br />
+    <%= f.check_box :display_name %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

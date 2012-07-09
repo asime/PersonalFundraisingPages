@@ -1,6 +1,6 @@
 Feature: As a donor, I want to contribute towards the goal of a champion's fundraiser.
 
-@wip
+
 Scenario:  Place a donation and update the
 	Given a champion exists
 	And that champion has setup a fundraiser with a goal of "35"

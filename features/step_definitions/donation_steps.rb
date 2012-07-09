@@ -29,8 +29,8 @@ When /^I go to the show view for that fundraiser$/ do
 end
 
 Then /^I see a goal of "(.*?)" with progress of "(.*?)"$/ do |arg1, arg2|
-  page.should have_content(arg1)
-  page.should have_content(arg2)
+  page.should have_content('Goal: ' + arg1)
+  page.should have_content('Progress: ' + arg2)
 end
 
 When /^I donate to this fundraiser$/ do

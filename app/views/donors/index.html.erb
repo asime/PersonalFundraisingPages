@@ -3,6 +3,16 @@
 <table>
   <tr>
     <th>Username</th>
+<th>Password</th>
+<th>First Name</th>
+<th>Last Name</th>
+<th>Email</th>
+<th>Street 1</th>
+<th>Street 2</th>
+<th>City</th>
+<th>State</th>
+<th>Postal Code</th>
+<th>Display_name</th>
     <th></th>
     <th></th>
     <th></th>
@@ -11,6 +21,16 @@
 <% @donors.each do |donor| %>
   <tr>
     <td><%= donor.username %></td>
+	<td><%= donor.password%></td>
+	<td><%= donor.fname%></td>
+	<td><%= donor.lname%></td>
+	<td><%= donor.email%></td>
+	<td><%= donor.street1%></td>
+	<td><%= donor.street2%></td>
+	<td><%= donor.city%></td>
+	<td><%= donor.state%></td>
+	<td><%= donor.postal_code%></td>
+	<td><%= donor.display_name%></td>
     <td><%= link_to 'Show', donor %></td>
     <td><%= link_to 'Edit', edit_donor_path(donor) %></td>
     <td><%= link_to 'Destroy', donor, confirm: 'Are you sure?', method: :delete %></td>
