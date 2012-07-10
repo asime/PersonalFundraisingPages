@@ -103,4 +103,13 @@ class FundraisersController < ApplicationController
     end
   end
 
+  def thanks
+	  @fundraiser = Fundraiser.find(params[:id])
+	  
+	  respond_to do |format|
+      format.html # thanks.html.erb
+      format.json { render json: @fundraisers }
+    end
+  end
+
 end
