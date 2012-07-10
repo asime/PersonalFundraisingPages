@@ -42,11 +42,23 @@ Then /^I see a form to fill out$/ do
 end
 
 Then /^I fill out the donation form for an amount of "(.*?)"$/ do |arg1|
-  pending # express the regexp above with the code you wish you had
+  fill_in('donor_username', :with => '1_username')
+  fill_in('donor_password', :with => 'secretpassword')
+  fill_in('donor_fname', :with => 'bob')
+  fill_in('donor_lname', :with => 'jones')
+  fill_in('donor_email', :with => 'email@wesite.com')
+  fill_in('donor_street1', :with => 'main street')
+  fill_in('donor_street2', :with => 'secondary street')
+  fill_in('donor_city', :with => 'cville')
+  fill_in('donor_state', :with => 'VA')
+  fill_in('donor_postal_code', :with => '22911')
+  check('donor_display_name')
+  fill_in('donor_donations_attributes_0_amount', :with => arg1)
+  fill_in('donor_donations_attributes_0_comments', :with => 'Im so happy to be donating to this cause. Its awesome!')
 end
 
 When /^I click donate$/ do
-  pending # express the regexp above with the code you wish you had
+  click_button('Complete Donation')
 end
 
 Then /^I am taken to a success page$/ do

@@ -94,10 +94,7 @@ class FundraisersController < ApplicationController
 	  @donor = Donor.new
 	  
 	  1.times {
-		puts 'VVVVVVVVVVVV' 
 		@donor.donations.build
-		@donor.inspect
-		puts 'VVVVVVVVVVVV'
 	  }
 	  
 	  respond_to do |format|
