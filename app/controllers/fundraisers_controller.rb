@@ -48,12 +48,16 @@ class FundraisersController < ApplicationController
   def create
     @fundraiser = Fundraiser.new(params[:fundraiser])
 	#@fundraiser.champion_id=params[:champion]
+	#@champion = Champion.find_by_id(params[:champion_id])
     respond_to do |format|
       if @fundraiser.save
         format.html { redirect_to @fundraiser, notice: 'Fundraiser was successfully created.' }
         format.json { render json: @fundraiser, status: :created, location: @fundraiser }
       else
-        format.html { render action: "new" }
+        format.html { render action: "new" , :champion => params[:fundraiser][:champion_id] }
+	puts "VVVVVVVVVVVVV"
+	puts params[:champion]
+	puts "VVVVVVVVVVVVV"
         format.json { render json: @fundraiser.errors, status: :unprocessable_entity }
       end
     end
