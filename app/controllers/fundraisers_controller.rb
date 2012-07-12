@@ -47,6 +47,7 @@ class FundraisersController < ApplicationController
   # POST /fundraisers.json
   def create
     @fundraiser = Fundraiser.new(params[:fundraiser])
+    @champion = Champion.find(@fundraiser.champion_id)
 	
     respond_to do |format|
       if @fundraiser.save
@@ -63,6 +64,7 @@ class FundraisersController < ApplicationController
   # PUT /fundraisers/1.json
   def update
     @fundraiser = Fundraiser.find(params[:id])
+    @champion = Champion.find(@fundraiser.champion_id)
 
     respond_to do |format|
       if @fundraiser.update_attributes(params[:fundraiser])
