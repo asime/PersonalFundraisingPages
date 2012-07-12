@@ -15,7 +15,12 @@ Scenario: Create a fundraiser
 	Then I should see the fundraiser info on the champion's page
 
 @wip
-Scenario: View fundraisers
+Scenario: Edit fundraisers
 	Given I have created a champion and that champion has a fundraiser
 	When I click show on the champions page
-	
+	And I click on the title of a fundraiser
+	And I click on the edit link for the fundraiser
+	And I change the goal to "50"
+	And I change the title to "2nd Title"
+	And I click update fundraiser
+	Then I should see that the fundraiser has been successfully updated
