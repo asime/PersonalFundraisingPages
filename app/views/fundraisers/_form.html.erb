@@ -16,7 +16,7 @@
 	<% if !@champion.nil? %>	
 	<%= link_to @champion.username + " (" + @champion.fname + " " + @champion.lname + ")", champion_path(@champion.id) %>
 	<% end %>
-    <%= f.text_field :champion_id, :value => params[:champion] %>
+    <%= f.text_field :champion_id, :value => (params[:champion].nil? ? params[:fundraiser][:champion_id] : params[:champion]) %>
 
   </div>
 
