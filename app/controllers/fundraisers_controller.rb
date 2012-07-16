@@ -107,6 +107,8 @@ class FundraisersController < ApplicationController
 
   def thanks
 	  @fundraiser = Fundraiser.find(params[:id])
+	  @donation = Donation.find(params[:donation_id])
+	  @donor = Donor.find(@donation.donor_id)
 	  
 	  respond_to do |format|
       format.html # thanks.html.erb

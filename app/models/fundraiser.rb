@@ -11,9 +11,6 @@ class Fundraiser < ActiveRecord::Base
   def progress
 	@donations = Donation.find_all_by_fundraiser_id(id)
 	@progress = 0
-	puts 'VVVVVVVVVVVVVVVVVVV'
-	puts @donations.inspect
-	puts 'VVVVVVVVVVVVVVVVVVV'
 	if @donations.nil?
 	  return @progress
 	else

@@ -42,13 +42,11 @@ class DonorsController < ApplicationController
   def create
     @donor = Donor.new(params[:donor])
 
-puts 'VVVVVVVVVVVVVVVV'
-puts params.inspect
-puts 'VVVVVVVVVVVVVVVV'
-puts  params[:donor][:donations_attributes]['0'][:fundraiser_id].inspect
-
 	if @donor.save
-		redirect_to "/fundraisers/#{params[:donor][:donations_attributes]['0'][:fundraiser_id]}/thanks"
+		@last_donation = Donation.find_by_donor_id(@donor.id, :order => "id DESC")
+
+		redirect_to "/fundraisers/#{params[:donor][:donations_attributes]['0'][:fundraiser_id]}/thanks?donation_id=#{@last_donation.id}"
+
 	else
 		respond_to do |format|
 		  format.html { render action: "new" }
