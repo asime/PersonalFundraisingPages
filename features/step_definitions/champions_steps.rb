@@ -74,24 +74,17 @@ Given /^I have created a champion and that champion has a fundraiser$/ do
 	step "I create a fundraiser"
 end
 
-When /^I click show on the champions page$/ do
-  click_link("JohnTee (John Test)")
-end
-
-When /^I click on the title of a fundraiser$/ do
-  click_link("fun title test")
-end
-
 When /^I click on the edit link for the fundraiser$/ do
-  click_link("a")
+  click_link('Edit')
+  page.has_content?('Editing fundraiser')
 end
 
 When /^I change the goal to "(.*?)"$/ do |arg1|
-  fill_in('fundraiser_goal', :with => arg1)
+  fill_in 'fundraiser_goal', :with => arg1
 end
 
 When /^I change the title to "(.*?)"$/ do |arg1|
-  fill_in('fundraiser_title', :with => arg1)
+  fill_in 'fundraiser_title', :with => arg1
 end
 
 When /^I click update fundraiser$/ do
