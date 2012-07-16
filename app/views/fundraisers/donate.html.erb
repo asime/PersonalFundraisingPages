@@ -56,6 +56,15 @@ Thank you for donating to the "<%= @fundraiser.title %>" fundraiser!
       <%= builder.label :comments %><br />
       <%= builder.text_area :comments %>
     </div>
+    <div class="field">
+      <%= builder.label :donor_id %><br />
+      <%= builder.hidden_field :donor_id %>
+    </div>
+    <div class="field">
+      <%= builder.label :fundraiser_id %><br />
+      <%= builder.hidden_field :fundraiser_id, :value => params[:id] %>
+    </div>
+
   <% end %>
 
   <div class="actions">

@@ -28,7 +28,7 @@ Scenario: Create Champion with missing fields
 	When I click create Champion
 	Then I should recieve an error message
 	When I successfully fill out the champion form
-	and I click create champion
+	And I click create champion
 	Then I should see the champion on the show page
 
 @wip

@@ -10,6 +10,16 @@
   <%= @donation.comments %>
 </p>
 
+<p>
+  <b>Fundraiser_id:</b>
+  <%= @donation.fundraiser_id %>
+</p>
+
+<p>
+  <b>Donor_id:</b>
+  <%= @donation.donor_id %>
+</p>
+
 
 <%= link_to 'Edit', edit_donation_path(@donation) %> |
 <%= link_to 'Back', donations_path %>
