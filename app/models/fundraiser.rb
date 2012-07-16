@@ -18,7 +18,9 @@ class Fundraiser < ActiveRecord::Base
 	  return @progress
 	else
 	  @donations.each do |d|
-	    @progress += d.amount
+		if !d.amount.nil?
+		  @progress += d.amount
+		end
 	  end
 	end
 	return @progress
