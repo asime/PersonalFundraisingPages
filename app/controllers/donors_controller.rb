@@ -42,16 +42,19 @@ class DonorsController < ApplicationController
   def create
     @donor = Donor.new(params[:donor])
 
-    respond_to do |format|
-      if @donor.save
-		redirect_to '/fundraisers/2/thanks'
-        #format.html { redirect_to @donor, notice: 'Donor was successfully created.' }
-        #format.json { render json: @donor, status: :created, location: @donor }
-      else
-        format.html { render action: "new" }
-        format.json { render json: @donor.errors, status: :unprocessable_entity }
-      end
-    end
+puts 'VVVVVVVVVVVVVVVV'
+puts params.inspect
+puts 'VVVVVVVVVVVVVVVV'
+puts  params[:donor][:donations_attributes]['0'][:fundraiser_id].inspect
+
+	if @donor.save
+		redirect_to "/fundraisers/#{params[:donor][:donations_attributes]['0'][:fundraiser_id]}/thanks"
+	else
+		respond_to do |format|
+		  format.html { render action: "new" }
+		   format.json { render json: @donor.errors, status: :unprocessable_entity }
+		end
+	end
   end
 
   # PUT /donors/1
