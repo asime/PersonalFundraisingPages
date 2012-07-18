@@ -106,11 +106,12 @@ class FundraisersController < ApplicationController
   end
 
   def thanks
-	  @fundraiser = Fundraiser.find(params[:id])
-	  @donation = Donation.find(params[:donation_id])
-	  @donor = Donor.find(@donation.donor_id)
+	@fundraiser = Fundraiser.find(params[:id])
+	@champion = Champion.find(@fundraiser.champion_id)
+	@donation = Donation.find(params[:donation_id])
+	@donor = Donor.find(@donation.donor_id)
 	  
-	  respond_to do |format|
+	respond_to do |format|
       format.html # thanks.html.erb
       format.json { render json: @fundraisers }
     end

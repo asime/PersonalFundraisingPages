@@ -1,1 +1,68 @@
 Thank you for your donation!
+<br />
+<br />
+Here are the details:
+
+<p>
+<b><u>You donated to the fundraiser:</b></u>
+<br />
+  <b>Title:</b>
+  <%= @fundraiser.title %>
+<br />
+  <b>Champion:</b>
+  <%= link_to @champion.username + " (" + @champion.fname + " " + @champion.lname + ")", champion_path(@champion.id) %>
+<br />
+  <b>Description:</b>
+  <%= @fundraiser.description %>
+<br />
+  <b>Goal:</b> $
+  <%= @fundraiser.goal %>
+<br />
+  <b>Progress:</b> $
+  <%= @fundraiser.progress %>
+<br />
+  <b>Deadline:</b>
+  <%= @fundraiser.deadline %>
+</p>
+
+<p>
+<b><u>Your donation:</b></u>
+<br />
+  <b>Donation Amount:</b> $
+  <%= @donation.amount %>
+<br />
+  <b>Comments:</b>
+  <%= @donation.comments %>
+</p>
+
+<p>
+<b><u>Billing details for:</b></u>
+  "<%= @donor.username %>"
+<br />
+  <b>FirstName:</b>
+  <%= @donor.fname %>
+<br />
+  <b>LastName:</b>
+  <%= @donor.lname %>
+<br />
+  <b>Email:</b>
+  <%= @donor.email %>
+<br />
+  <b>Street1:</b>
+  <%= @donor.street1 %>
+<br />
+  <b>Street2:</b>
+  <%= @donor.street2 %>
+<br />
+  <b>City:</b>
+  <%= @donor.city %>
+<br />
+  <b>State:</b>
+  <%= @donor.state %>
+<br />
+  <b>PostalCode:</b>
+  <%= @donor.postal_code %>
+<br />
+  <b>display_name:</b>
+  <%= @donor.display_name %>
+</p>
