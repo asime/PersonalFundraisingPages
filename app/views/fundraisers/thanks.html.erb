@@ -21,6 +21,13 @@ Here are the details:
   <b>Progress:</b> $
   <%= @fundraiser.progress %>
 <br />
+  <b>Remaining: $</b>
+  <%= if (@fundraiser.goal - @fundraiser.progress) > 0
+		@fundraiser.goal - @fundraiser.progress 
+	  else
+		0
+	  end %>
+<br />
   <b>Deadline:</b>
   <%= @fundraiser.deadline %>
 </p>

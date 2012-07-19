@@ -62,10 +62,10 @@ When /^I click donate$/ do
 end
 
 Then /^I am taken to a success page$/ do
-  pending # express the regexp above with the code you wish you had
+  page.should have_content('Thank you for your donation!')
 end
 
 Then /^the progress bar for the fundraiser shows that "(.*?)" remains towards the goal$/ do |arg1|
-  pending # express the regexp above with the code you wish you had
+  page.should have_content(arg1)
 end
 
