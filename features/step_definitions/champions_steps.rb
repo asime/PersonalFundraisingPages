@@ -32,6 +32,7 @@ Then /^I should see "(.*?)"$/ do |arg1|
   page.should have_content(arg1)
 end
 
+#create a fundraiser
 Given /^I am a champion on the show champions page$/ do
 	step "I am on the new champions page"
 	step "I enter my user info"
@@ -93,5 +94,80 @@ end
 
 Then /^I should see that the fundraiser has been successfully updated$/ do
   page.should have_content('Fundraiser was successfully updated.')
+end
+
+#creating a champion with blank fields
+Given /^I am on the new champions page again$/ do
+  visit('/champions/new')
+  page.has_content?('Champion')
+end
+
+When /^I click create Champion without filling out fields$/ do
+  click_button('Create Champion')
+end
+
+
+Then /^I should recieve an error message$/ do
+  page.should have_content("City can't be blank")
+  page.should have_content("Email can't be blank")
+  page.should have_content("Fname can't be blank")
+  page.should have_content("Lname can't be blank")
+  page.should have_content("Password can't be blank")
+  page.should have_content("State can't be blank")
+  page.should have_content("Username can't be blank")
+end
+
+
+When /^I successfully fill out the champion form$/ do
+  fill_in('champion_username', :with => 'JohnTest 2')
+  fill_in('champion_fname', :with => 'John')
+  fill_in('champion_lname', :with => 'isTest')
+  fill_in('champion_city', :with => 'cville')
+  fill_in('champion_state', :with => 'VA')
+  fill_in('champion_email', :with => 'JTest@internet.com')
+  fill_in('champion_password', :with => 'passwordtest')
+end
+
+When /^I click create champion again$/ do
+  click_button('Create Champion')
+end
+
+
+Then /^I should see the champion on the show page$/ do
+  page.should have_content('JohnTest 2')
+  page.should have_content('John')
+  page.should have_content('isTest')
+  page.should have_content('cville')
+  page.should have_content('VA')
+  page.should have_content('JTest@internet.com')
+  page.should have_content('passwordtest')
+end
+
+#creating a fundraiser with missing fields
+Given /^I am a champion on the show champion page$/ do
+  step "I am on the new champions page again"
+  step "I successfully fill out the champion form"
+  step "I click create champion again"
+end
+
+Then /^I should get an error message$/ do
+  page.should have_content("3 errors prohibited this fundraiser from being saved:")
+end
+
+When /^I correctly fill out the form$/ do
+fill_in('fundraiser_title', :with => 'a test run')
+	fill_in('fundraiser_description', :with => 'I am testing a program, for charity!')
+	fill_in('fundraiser_goal', :with => '50')
+	select('2011', :from => 'fundraiser_deadline_1i')
+	select('August', :from => 'fundraiser_deadline_2i')
+	select('15', :from => 'fundraiser_deadline_3i')
+	select('15', :from => 'fundraiser_deadline_4i')
+	select('20', :from => 'fundraiser_deadline_5i')
+end
+
+Then /^I should see the fundraiser was successfully created$/ do
+  page.should have_content('a test run')
+  page.should have_content('50')
+  page.should have_content('I am testing')
 end
 
