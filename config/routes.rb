@@ -1,4 +1,6 @@
 PersonalFundraisingPages::Application.routes.draw do
+  get "home/index"
+
   resources :donations
   resources :donors
   resources :fundraisers
@@ -12,7 +14,7 @@ PersonalFundraisingPages::Application.routes.draw do
   # Keep in mind you can assign values other than :controller and :action
   match 'fundraisers/:id/donate' => 'fundraisers#donate'
   match 'fundraisers/:id/thanks' => 'fundraisers#thanks'
-
+  root to: 'home#index' , as: 'home'
   # Sample of named route:
   #   match 'products/:id/purchase' => 'catalog#purchase', :as => :purchase
   # This route can be invoked with purchase_url(:id => product.id)
