@@ -1,5 +1,5 @@
 class HomeController < ApplicationController
   def index
-	@fundraiser = Fundraiser.all
+	  @fundraisers = Fundraiser.all
   end
 end
