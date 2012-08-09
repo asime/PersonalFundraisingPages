@@ -1,0 +1,43 @@
+<h1>Listing charities</h1>
+
+<table>
+  <tr>
+    <th>Charity name</th>
+    <th>Street1</th>
+    <th>Street2</th>
+    <th>City</th>
+    <th>State</th>
+    <th>Zip</th>
+    <th>Twitter handle</th>
+    <th>Phone</th>
+    <th>Email</th>
+    <th>Facebook page</th>
+    <th>Website url</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @charities.each do |charity| %>
+  <tr>
+    <td><%= charity.charity_name %></td>
+    <td><%= charity.street1 %></td>
+    <td><%= charity.street2 %></td>
+    <td><%= charity.city %></td>
+    <td><%= charity.state %></td>
+    <td><%= charity.zip %></td>
+    <td><%= charity.twitter_handle %></td>
+    <td><%= charity.phone %></td>
+    <td><%= charity.email %></td>
+    <td><%= charity.facebook_page %></td>
+    <td><%= charity.website_url %></td>
+    <td><%= link_to 'Show', charity %></td>
+    <td><%= link_to 'Edit', edit_charity_path(charity) %></td>
+    <td><%= link_to 'Destroy', charity, confirm: 'Are you sure?', method: :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Charity', new_charity_path %>
