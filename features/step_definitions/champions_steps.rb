@@ -51,6 +51,7 @@ end
 
 When /^I fill out the fundraiser fields$/ do
 	fill_in('fundraiser_title', :with => 'fun title test')
+	fill_in('fundraiser_charity', :with => 'nice people')
 	fill_in('fundraiser_description', :with => 'I am raising money for children with ailments. And this is a description of my	fundraising attempts.')
 	fill_in('fundraiser_goal', :with => '500')
 	select('2013', :from => 'fundraiser_deadline_1i')
@@ -68,6 +69,7 @@ Then /^I should see the fundraiser info on the champion's page$/ do
   page.should have_content('fun title test')
   page.should have_content('500')
   page.should have_content('I am raising')
+  page.should have_content('nice people')
 end
 
 Then /^I should see a form to invite the charity via email to setup a payment account with us$/ do
@@ -161,11 +163,12 @@ Given /^I am a champion on the show champion page$/ do
 end
 
 Then /^I should get an error message$/ do
-  page.should have_content("3 errors prohibited this fundraiser from being saved:")
+  page.should have_content("4 errors prohibited this fundraiser from being saved:")
 end
 
 When /^I correctly fill out the form$/ do
-fill_in('fundraiser_title', :with => 'a test run')
+    fill_in('fundraiser_title', :with => 'a test run')
+	fill_in('fundraiser_charity', :with => 'ok people')
 	fill_in('fundraiser_description', :with => 'I am testing a program, for charity!')
 	fill_in('fundraiser_goal', :with => '50')
 	select('2011', :from => 'fundraiser_deadline_1i')
@@ -179,6 +182,7 @@ Then /^I should see the fundraiser was successfully created$/ do
   page.should have_content('a test run')
   page.should have_content('50')
   page.should have_content('I am testing')
+  page.should have_content('ok people')
 end
 
 #scenario: sharing a page

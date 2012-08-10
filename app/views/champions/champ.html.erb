@@ -1,43 +1,37 @@
 <p id="notice"><%= notice %></p>
 
-<%=link_to "Create fundraiser", new_fundraiser_path(:champion => @champion.id) %>
+<!--Twitter share-->
+<script type="text/javascript">
+    function TweetWindow() {
+        var tweetText = document.getElementById('tweet_text');
+        window.open("http://twitter.com/intent/tweet?text=" + encodeURI(tweetText.value).replace(/#/g,"%23"), "", "");
+    }
+</script>
+<!--//Twitter share-->
 
+<%=link_to "Create fundraiser", new_fundraiser_path(:champion => @champion.id) %>
 <p>
   <b>Username:</b>
   <%= @champion.username %>
-</p>
-
-<p>
+<br>
   <b>Fname:</b>
   <%= @champion.fname %>
-</p>
-
-<p>
+<br>
   <b>Lname:</b>
   <%= @champion.lname %>
-</p>
-
-<p>
+<br>
   <b>City:</b>
   <%= @champion.city %>
-</p>
-
-<p>
+<br>
   <b>State:</b>
   <%= @champion.state %>
-</p>
-
-<p>
+<br>
   <b>Twitter Handle:</b>
   <%= @champion.twitter_handle %>
-</p>
-
-<p>
+<br>
   <b>Email:</b>
   <%= @champion.email %>
-</p>
-
-<p>
+<br>
   <b>Password:</b>
   <%= @champion.password %>
 </p>
@@ -46,7 +40,9 @@
   <b>Fundraisers:</b>
   <table>
 	<tr>
+		<th>Tell your friends!</th>
 		<th>Title</th>
+		<th>Charity</th>
 		<th>Description</th>
 		<th>Goal</th>
 		<th>Deadline</th>
@@ -54,7 +50,9 @@
 
   <% @fundraisers.each do |fr| %>
   	<tr>
+		<td><%= text_area_tag 'tweet_text', 'I just started a fundraiser!', cols: 30, rows: 3 %> <a href="#" onclick="TweetWindow();"><%= image_tag "twitter_share.png"%></a></td>
 		<td><%= link_to fr.title, fundraiser_path(fr.id) %></td>
+		<td><%= fr.charity %></td>
 		<td><%= fr.description %></td>
 		<td><%= fr.goal %></td>
 		<td><%= fr.deadline %></td>

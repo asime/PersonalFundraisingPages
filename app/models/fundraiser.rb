@@ -1,9 +1,9 @@
 class Fundraiser < ActiveRecord::Base
   belongs_to :champions
   has_many :donations
-  attr_accessible :champion_id, :deadline, :description, :goal, :title
+  attr_accessible :charity, :champion_id, :deadline, :description, :goal, :title
   
-  validates :champion_id, :description, :goal, :title,
+  validates :champion_id, :description, :goal, :title, :charity,
   presence: true
 
   #validates :goal, numericality: (greater_than_or_equal_to: 0.01)

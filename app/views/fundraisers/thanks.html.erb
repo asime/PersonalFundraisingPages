@@ -1,3 +1,12 @@
+<!--Twitter share-->
+<script type="text/javascript">
+    function TweetWindow() {
+        var tweetText = document.getElementById('tweet_text');
+        window.open("http://twitter.com/intent/tweet?text=" + encodeURI(tweetText.value).replace(/#/g,"%23"), "", "");
+    }
+</script>
+<!--//Twitter share-->
+
 Thank you for your donation!
 <br />
 <br />
@@ -8,6 +17,9 @@ Here are the details:
 <br />
   <b>Title:</b>
   <%= @fundraiser.title %>
+<br />
+  <b>Charity:</b>
+  <%= @fundraiser.charity %>
 <br />
   <b>Champion:</b>
   <%= link_to @champion.username + " (" + @champion.fname + " " + @champion.lname + ")", champion_path(@champion.id) %>
@@ -41,6 +53,10 @@ Here are the details:
   <b>Comments:</b>
   <%= @donation.comments %>
 </p>
+
+    <h2>Tell your friends!</h2>
+                <p><%= text_area_tag 'tweet_text', 'I Just donated to a fundraiser!', cols: 30, rows: 3 %></p>
+                <p><a href="#" onclick="TweetWindow();"><%= image_tag "twitter_share.png"%></a></p>
 
 <p>
 <b><u>Billing details for:</b></u>

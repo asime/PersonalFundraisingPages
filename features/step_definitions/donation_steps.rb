@@ -14,6 +14,7 @@ end
 Given /^that champion has setup a fundraiser with a goal of "(.*?)"$/ do |arg1|
   click_link('Create fundraiser')
   fill_in('fundraiser_title', :with => 'fun title test')
+  fill_in('fundraiser_charity', :with => 'nice people')
   fill_in('fundraiser_description', :with => 'I am raising money for children with ailments. And this is a description of my	fundraising attempts.')
   fill_in('fundraiser_goal', :with => arg1)
   select('2013', :from => 'fundraiser_deadline_1i')
