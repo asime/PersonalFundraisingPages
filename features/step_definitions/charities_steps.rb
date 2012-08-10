@@ -34,6 +34,8 @@ end
 
 Then /^I should enter fields for Charity name, address, phone, contact email, username, password, twitter handle, facebook page, and website$/ do
   fill_in('charity_charity_name', :with => 'nice people')
+  fill_in('charity_username', :with => 'niceppl22')
+  fill_in('charity_password', :with => 'secret')
   fill_in('charity_street1', :with => '101 main street')
   fill_in('charity_street2', :with => '202 second street')
   fill_in('charity_city', :with => 'springfield')
