@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120705192240) do
+ActiveRecord::Schema.define(:version => 20120809193430) do
 
   create_table "champions", :force => true do |t|
     t.string   "username"
@@ -21,8 +21,25 @@ ActiveRecord::Schema.define(:version => 20120705192240) do
     t.string   "state"
     t.string   "email"
     t.string   "password"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",     :null => false
+    t.datetime "updated_at",     :null => false
+    t.string   "twitter_handle"
+  end
+
+  create_table "charities", :force => true do |t|
+    t.string   "charity_name"
+    t.string   "street1"
+    t.string   "street2"
+    t.string   "city"
+    t.string   "state"
+    t.string   "zip"
+    t.string   "twitter_handle"
+    t.string   "phone"
+    t.string   "email"
+    t.string   "facebook_page"
+    t.string   "website_url"
+    t.datetime "created_at",     :null => false
+    t.datetime "updated_at",     :null => false
   end
 
   create_table "donations", :force => true do |t|
@@ -48,18 +65,6 @@ ActiveRecord::Schema.define(:version => 20120705192240) do
     t.string   "state"
     t.string   "postal_code"
     t.boolean  "display_name"
-  end
-
-  create_table "events", :force => true do |t|
-    t.string   "title"
-    t.string   "location"
-    t.integer  "year"
-    t.integer  "month"
-    t.integer  "day"
-    t.integer  "time"
-    t.string   "champion"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
   end
 
   create_table "fundraisers", :force => true do |t|

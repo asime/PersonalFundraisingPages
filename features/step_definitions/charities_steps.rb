@@ -1,35 +1,4 @@
-Given /^I am a champion and I have multiple fundraisers setup$/ do
-  visit('/champions/new')
-  fill_in('champion_username', :with => 'JohnTee')
-  fill_in('champion_fname', :with => 'John')
-  fill_in('champion_lname', :with => 'Test')
-  fill_in('champion_city', :with => 'cville')
-  fill_in('champion_state', :with => 'VA')
-  fill_in('champion_email', :with => 'JT@internet.com')
-  fill_in('champion_password', :with => 'passwordtest')
-end
-
-When /^I go to the url \/c\/my_user_name$/ do
-  pending # express the regexp above with the code you wish you had
-end
-
-Then /^I should see a list of just my fundraisers$/ do
-  pending # express the regexp above with the code you wish you had
-end
-
-
-Then /^there should be a donation link next to each one$/ do
-  pending # express the regexp above with the code you wish you had
-end
-
-Then /^there should be a "(.*?)" next to each one$/ do |arg1|
-  pending # express the regexp above with the code you wish you had
-end
-
-Then /^the Twitter link should populate a default tweet with my twitter name on it\.$/ do
-  pending # express the regexp above with the code you wish you had
-end
-
+#Scenario: A charity receives an invitation
 Given /^that a champion has created a fundraiser for my charity$/ do
   pending # express the regexp above with the code you wish you had
 end
@@ -50,26 +19,39 @@ Then /^that id should be tied to my charity after I sign up$/ do
   pending # express the regexp above with the code you wish you had
 end
 
+#scenario: a charity signs themselves up
 Given /^that I am on the home page$/ do
-  pending # express the regexp above with the code you wish you had
+  visit('')
 end
 
 Given /^I click on the "(.*?)" link$/ do |arg1|
-  pending # express the regexp above with the code you wish you had
+  click_link(arg1)
 end
 
 Then /^I should be taken to a sign up page$/ do
-  pending # express the regexp above with the code you wish you had
+  page.should have_content('New charity')
 end
 
 Then /^I should enter fields for Charity name, address, phone, contact email, username, password, twitter handle, facebook page, and website$/ do
-  pending # express the regexp above with the code you wish you had
+  fill_in('charity_charity_name', :with => 'nice people')
+  fill_in('charity_street1', :with => '101 main street')
+  fill_in('charity_street2', :with => '202 second street')
+  fill_in('charity_city', :with => 'springfield')
+  fill_in('charity_state', :with => 'state')
+  fill_in('charity_zip', :with => '12345')
+  fill_in('charity_phone', :with => '111-222-3333')
+  fill_in('charity_email', :with => 'niceppl@aol.net')
+  fill_in('charity_twitter_handle', :with => 'niceperson')
+  fill_in('charity_facebook_page', :with => 'facebook.nicepeople')
+  fill_in('charity_website_url', :with => 'www.nicepeople.com')
 end
 
 When /^I press the submit button then I should be taken to a confirmation page$/ do
-  pending # express the regexp above with the code you wish you had
+  click_button('Create Charity')
+  page.should have_content('Charity was successfully created.')
 end
 
+#scenario: A charity signs up for a payment type
 Given /^that I am a charity already signed up$/ do
   pending # express the regexp above with the code you wish you had
 end

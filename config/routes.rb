@@ -1,4 +1,6 @@
 PersonalFundraisingPages::Application.routes.draw do
+  resources :charities
+
   get "home/index"
 
   resources :donations

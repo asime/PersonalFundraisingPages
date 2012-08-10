@@ -14,6 +14,10 @@ When /^I enter my user info$/ do
   fill_in('champion_password', :with => 'passwordtest')
 end
 
+When /^I optionally enter my twitter user name$/ do
+  fill_in('champion_twitter_handle', :with => 'tweeter')
+end
+
 When /^I create my champion$/ do
   click_button('Create Champion')
 end
@@ -26,6 +30,7 @@ Then /^I should see my info on the show page$/ do
   page.should have_content('VA')
   page.should have_content('JT@internet.com')
   page.should have_content('passwordtest')
+  page.should have_content('tweeter')
 end
 
 Then /^I should see "(.*?)"$/ do |arg1|
@@ -65,7 +70,12 @@ Then /^I should see the fundraiser info on the champion's page$/ do
   page.should have_content('I am raising')
 end
 
+Then /^I should see a form to invite the charity via email to setup a payment account with us$/ do
+  pending # express the regexp above with the code you wish you had
+end
 
+
+#scenario: update a fundraiser
 Given /^I have created a champion and that champion has a fundraiser$/ do
 	step "I am on the new champions page"
 	step "I enter my user info"
@@ -171,3 +181,34 @@ Then /^I should see the fundraiser was successfully created$/ do
   page.should have_content('I am testing')
 end
 
+#scenario: sharing a page
+Given /^I am a champion and I have multiple fundraisers setup$/ do
+	step "I am on the new champions page"
+	step "I enter my user info"
+	step "I optionally enter my twitter user name"
+	step "I create my champion"
+	step "I click create fundraiser"
+	step "I fill out the fundraiser fields"
+	step "I create a fundraiser"
+end
+
+When /^I go to the url \/c\/my_user_name$/ do
+  pending # express the regexp above with the code you wish you had
+end
+
+Then /^I should see a list of just my fundraisers$/ do
+  pending # express the regexp above with the code you wish you had
+end
+
+
+Then /^there should be a donation link next to each one$/ do
+  pending # express the regexp above with the code you wish you had
+end
+
+Then /^there should be a "(.*?)" next to each one$/ do |arg1|
+  pending # express the regexp above with the code you wish you had
+end
+
+Then /^the Twitter link should populate a default tweet with my twitter name on it\.$/ do
+  pending # express the regexp above with the code you wish you had
+end
