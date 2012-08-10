@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120810192743) do
+ActiveRecord::Schema.define(:version => 20120810205552) do
 
   create_table "champions", :force => true do |t|
     t.string   "username"
@@ -38,10 +38,11 @@ ActiveRecord::Schema.define(:version => 20120810192743) do
     t.string   "email"
     t.string   "facebook_page"
     t.string   "website_url"
-    t.datetime "created_at",     :null => false
-    t.datetime "updated_at",     :null => false
+    t.datetime "created_at",      :null => false
+    t.datetime "updated_at",      :null => false
     t.string   "username"
     t.string   "password"
+    t.integer  "payment_type_id"
   end
 
   create_table "donations", :force => true do |t|
@@ -78,6 +79,12 @@ ActiveRecord::Schema.define(:version => 20120810192743) do
     t.datetime "updated_at",  :null => false
     t.integer  "champion_id"
     t.string   "charity"
+  end
+
+  create_table "payment_types", :force => true do |t|
+    t.string   "payment_type_name"
+    t.datetime "created_at",        :null => false
+    t.datetime "updated_at",        :null => false
   end
 
 end
