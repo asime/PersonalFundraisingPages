@@ -193,16 +193,17 @@ Given /^I am a champion and I have multiple fundraisers setup$/ do
 end
 
 When /^I go to the url \/c\/my_user_name$/ do
-  pending # express the regexp above with the code you wish you had
+  visit('/champ/JOHNTEE')
 end
 
 Then /^I should see a list of just my fundraisers$/ do
-  pending # express the regexp above with the code you wish you had
+  page.should have_content('Fundraisers')
+  page.should have_content('fun title test')
 end
 
 
 Then /^there should be a donation link next to each one$/ do
-  pending # express the regexp above with the code you wish you had
+  find_link('fun title test').visible?
 end
 
 Then /^there should be a "(.*?)" next to each one$/ do |arg1|

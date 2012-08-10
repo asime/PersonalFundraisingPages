@@ -3,4 +3,6 @@ class Champion < ActiveRecord::Base
 
 validates :city, :email, :fname, :lname, :password, :state, :username, presence: true
 
+validates_uniqueness_of :username, :case_sensitive => false
+
 end

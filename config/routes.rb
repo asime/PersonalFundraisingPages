@@ -17,6 +17,7 @@ PersonalFundraisingPages::Application.routes.draw do
   match 'fundraisers/:id/donate' => 'fundraisers#donate'
   match 'fundraisers/:id/thanks' => 'fundraisers#thanks'
   root to: 'home#index' , as: 'home'
+  match 'champ/:username' => 'champions#champ'
   # Sample of named route:
   #   match 'products/:id/purchase' => 'catalog#purchase', :as => :purchase
   # This route can be invoked with purchase_url(:id => product.id)

@@ -1,0 +1,68 @@
+<p id="notice"><%= notice %></p>
+
+<%=link_to "Create fundraiser", new_fundraiser_path(:champion => @champion.id) %>
+
+<p>
+  <b>Username:</b>
+  <%= @champion.username %>
+</p>
+
+<p>
+  <b>Fname:</b>
+  <%= @champion.fname %>
+</p>
+
+<p>
+  <b>Lname:</b>
+  <%= @champion.lname %>
+</p>
+
+<p>
+  <b>City:</b>
+  <%= @champion.city %>
+</p>
+
+<p>
+  <b>State:</b>
+  <%= @champion.state %>
+</p>
+
+<p>
+  <b>Twitter Handle:</b>
+  <%= @champion.twitter_handle %>
+</p>
+
+<p>
+  <b>Email:</b>
+  <%= @champion.email %>
+</p>
+
+<p>
+  <b>Password:</b>
+  <%= @champion.password %>
+</p>
+
+<p>
+  <b>Fundraisers:</b>
+  <table>
+	<tr>
+		<th>Title</th>
+		<th>Description</th>
+		<th>Goal</th>
+		<th>Deadline</th>
+	</tr>
+
+  <% @fundraisers.each do |fr| %>
+  	<tr>
+		<td><%= link_to fr.title, fundraiser_path(fr.id) %></td>
+		<td><%= fr.description %></td>
+		<td><%= fr.goal %></td>
+		<td><%= fr.deadline %></td>
+	</tr>
+  <% end %>
+  
+  </table>
+</p>
+
+<%= link_to 'Edit', edit_champion_path(@champion) %> |
+<%= link_to 'Back', champions_path %>

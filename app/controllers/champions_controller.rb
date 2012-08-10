@@ -81,4 +81,20 @@ class ChampionsController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+
+  def champ
+    @champion = Champion.find(:first, :conditions => [ "lower(username) = ?", params[:username].downcase] )
+	if @champion.nil?
+	  redirect_to '/not_found/' + params[:username]
+	else
+	  @fundraisers = Fundraiser.find_all_by_champion_id(@champion.id)
+
+      respond_to do |format|
+        format.html # show.html.erb
+        format.json { render json: @champion }
+      end
+	end
+  end
+
 end
