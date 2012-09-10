@@ -1,6 +1,5 @@
 PersonalFundraisingPages::Application.routes.draw do
   resources :payment_types
-
   resources :charities
 
   get "home/index"

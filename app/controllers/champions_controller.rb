@@ -45,8 +45,12 @@ class ChampionsController < ApplicationController
 
     respond_to do |format|
       if @champion.save
+        # Deliver the signup_email
+        Notifier.signup_email(@champion).deliver
+
         format.html { redirect_to @champion, notice: 'Champion was successfully created.' }
         format.json { render json: @champion, status: :created, location: @champion }
+
       else
         format.html { render action: "new" }
         format.json { render json: @champion.errors, status: :unprocessable_entity }
@@ -96,5 +100,7 @@ class ChampionsController < ApplicationController
       end
 	end
   end
+
+
 
 end

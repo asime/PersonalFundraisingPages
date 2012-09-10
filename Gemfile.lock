@@ -161,6 +161,9 @@ GEM
       libwebsocket (~> 0.1.3)
       multi_json (~> 1.0)
       rubyzip
+    sendgrid (1.0.1)
+      json
+      json
     sprockets (2.1.3)
       hike (~> 1.2)
       rack (~> 1.0)
@@ -194,10 +197,12 @@ DEPENDENCIES
   guard-livereload
   guard-rspec
   jquery-rails
+  mail
   rails (= 3.2.3)
   rb-fsevent
   rspec-rails
   sass-rails (~> 3.2.3)
+  sendgrid
   sqlite3
   therubyracer
   uglifier (>= 1.0.3)
