@@ -211,9 +211,9 @@ Then /^there should be a donation link next to each one$/ do
 end
 
 Then /^there should be a "(.*?)" next to each one$/ do |arg1|
-  pending # express the regexp above with the code you wish you had
+  find_link('Twitter_share').visible?
 end
 
 Then /^the Twitter link should populate a default tweet with my twitter name on it\.$/ do
-  pending # express the regexp above with the code you wish you had
+  find_field('tweet_text').value
 end
